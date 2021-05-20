@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ExternalIntegration.Enums;
-using ExternalIntegration.Validations;
+﻿using ExternalIntegration.Validations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

@@ -1,6 +1,3 @@
-using ExternalIntegration.Enums;
-using System;
-
 namespace ExternalIntegration
 {
     public class TelstarRequest
