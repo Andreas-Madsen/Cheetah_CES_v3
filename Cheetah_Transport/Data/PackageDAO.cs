@@ -34,10 +34,11 @@ namespace Cheetah_Transport.Data
                         package.Width = (double)reader.GetDecimal(1);
                         package.Height = (double)reader.GetDecimal(2);
                         package.Length = (double)reader.GetDecimal(3);
-                        package.RecordedPackage = reader.GetInt32(4);
-                        package.LiveAnimals = reader.GetInt32(5);
-                        package.CautiousParcel = reader.GetInt32(6);
-                        package.RefregiatedGoods = reader.GetInt32(7);
+                        package.Weight = (double)reader.GetDecimal(4);
+                        package.RecordedPackage = reader.GetInt32(5);
+                        package.LiveAnimals = reader.GetInt32(6);
+                        package.CautiousParcel = reader.GetInt32(7);
+                        package.RefregiatedGoods = reader.GetInt32(8);
 
                         returnList.Add(package);
                     }
@@ -45,6 +46,30 @@ namespace Cheetah_Transport.Data
 
             }
             return returnList;
+        }
+        public int CreateOne(Package package)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+
+                string sqlQuery = "INSERT INTO dbo.Gadgets Values(@ID, @Width_cm, @Height_cm, @Length_cm, @Weight_KG, @RECOMMENDED, @ANIMALS, @CAUTIOUS, @REFRIGIATED)";
+
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+                command.Parameters.Add("@Id", System.Data.SqlDbType.VarChar, 1000).Value = package.ID;
+                command.Parameters.Add("@Width_cm", System.Data.SqlDbType.VarChar, 1000).Value = package.Weight;
+                command.Parameters.Add("@Height_cm", System.Data.SqlDbType.VarChar, 1000).Value = package.Height;
+                command.Parameters.Add("@Length_cm", System.Data.SqlDbType.VarChar, 1000).Value = package.Length;
+                command.Parameters.Add("@Weight_KG", System.Data.SqlDbType.VarChar, 1000).Value = package.Weight;
+                command.Parameters.Add("@RECOMMENDED", System.Data.SqlDbType.VarChar, 1000).Value = package.RecordedPackage;
+                command.Parameters.Add("@ANIMALS", System.Data.SqlDbType.VarChar, 1000).Value = package.LiveAnimals;
+                command.Parameters.Add("@CAUTIOUS", System.Data.SqlDbType.VarChar, 1000).Value = package.CautiousParcel;
+                command.Parameters.Add("@REFRIGIATED", System.Data.SqlDbType.VarChar, 1000).Value = package.RefregiatedGoods;
+
+                connection.Open();
+                int newID = command.ExecuteNonQuery();
+
+                return newID;
+            }
         }
 
     }
