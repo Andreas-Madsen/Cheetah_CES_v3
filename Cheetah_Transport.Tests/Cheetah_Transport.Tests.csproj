@@ -99,6 +99,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cheetah_Transport\Cheetah_Transport.csproj">
+      <Project>{f91f3aa4-b601-4368-8284-5630079c75db}</Project>
+      <Name>Cheetah_Transport</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
