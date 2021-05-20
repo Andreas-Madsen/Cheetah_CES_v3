@@ -14,7 +14,7 @@ namespace ExternalIntegration.Services {
             string url = Config.EAST_INDIA_TRADING_URL +
                 "cityFrom=" + cityFrom.ToString() + "&" +
                 "cityTo=" + cityTo.ToString() + "&" +
-                "date=2021-05-21&" +
+                "date=" + "date=" + System.DateTime.Now.Year + "-0" + System.DateTime.Now.Month + "-" + System.DateTime.Now.Day +"&" +
                 "shipmentType=STANDARD&" +
                 "weight=" + weight + "&" +
                 "isFragile=" + fragile + "&" +
