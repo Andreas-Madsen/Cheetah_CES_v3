@@ -24,12 +24,17 @@ namespace ExternalIntegration.Services {
         }
 
         public static EastIndiaResponse RequestRoute(CityEnum cityTo, CityEnum cityFrom, int weight, bool fragile, bool recorded) {
-            string url = BuildUrl(cityTo, cityFrom, weight, fragile, recorded);
-            string response = CommunicationController.Send(url, "");
-            //Console.WriteLine(response);
+            try {
+                string url = BuildUrl(cityTo, cityFrom, weight, fragile, recorded);
+                string response = CommunicationController.Send(url, "");
+                //Console.WriteLine(response);
 
-            EastIndiaResponse eastIndiaResponse = JsonSerializer.Deserialize<EastIndiaResponse>(response);
-            return eastIndiaResponse;
+                EastIndiaResponse eastIndiaResponse = JsonSerializer.Deserialize<EastIndiaResponse>(response);
+                return eastIndiaResponse;
+            }
+            catch (Exception) {
+                return null;
+            }
         }
     }
 }

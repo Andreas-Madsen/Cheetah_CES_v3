@@ -23,8 +23,7 @@ namespace ExternalIntegration.Utils {
 
             if (result.IsSuccessStatusCode) {
                 resultString = result.Content.ReadAsStringAsync().Result;
-            }
-            else {
+            } else if (Config.PRINT_SERVER_ERRROS) {
                 Console.WriteLine("{0} ({1})", (int)result.StatusCode, result.ReasonPhrase);
             }
 

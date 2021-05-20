@@ -26,12 +26,17 @@ namespace ExternalIntegration.Services {
         }
 
         public static OceanicResponse RequestRoute(CompanyEnum companyCode, CityEnum cityFrom, CityEnum cityTo, string parcelTyoe, int weight, int height, int width, int length) {
-            string url = BuildUrl(companyCode, cityFrom, cityTo, parcelTyoe, weight, height, width, length);
-            string response = CommunicationController.Send(url, "");
-            //Console.WriteLine(response);
+            try {
+                string url = BuildUrl(companyCode, cityFrom, cityTo, parcelTyoe, weight, height, width, length);
+                string response = CommunicationController.Send(url, "");
+                //Console.WriteLine(response);
 
-            OceanicResponse oceanicResponse = JsonSerializer.Deserialize<OceanicResponse>(response);
-            return oceanicResponse;
+                OceanicResponse oceanicResponse = JsonSerializer.Deserialize<OceanicResponse>(response);
+                return oceanicResponse;
+            }
+            catch (Exception) {
+                return null;
+            }
         }
     }
 }

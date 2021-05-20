@@ -1,8 +1,10 @@
 using ExternalIntegration.Enums;
+using ExternalIntegration.Models;
 using ExternalIntegration.Services;
 using ExternalIntegration.Utils;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace ExternalIntegration
 {
@@ -27,10 +29,9 @@ namespace ExternalIntegration
                 Length = 2
             });
 
-            OceanicAirlinesCommunication.RequestRoute(CompanyEnum.TELSTAR_LOGISTICS, CityEnum.ADDIS_ABEBA, CityEnum.AMATAVE, "parcelType", 2, 3, 4, 5);
-            EastIndiaTradingCommunication.RequestRoute(CityEnum.KAP_GUARDAFUI, CityEnum.SUAKIN, 50, false, false);
+            OceanicResponse oceanicResponse = OceanicAirlinesCommunication.RequestRoute(CompanyEnum.TELSTAR_LOGISTICS, CityEnum.ADDIS_ABEBA, CityEnum.AMATAVE, "parcelType", 2, 3, 4, 5);
+            EastIndiaResponse eastIndiaResponse  = EastIndiaTradingCommunication.RequestRoute(CityEnum.KAP_GUARDAFUI, CityEnum.SUAKIN, 50, false, false);
             */
-
             CreateHostBuilder(args).Build().Run();
         }
 
