@@ -38,7 +38,7 @@ namespace ExternalIntegration.Validations {
          */
         public static string isCitiesDirect(CityEnum cityFrom, CityEnum cityTo) 
         {
-            //TODO implement
+            //TODO implement (direct routes will be in database)
             return null;
         }
 
@@ -127,9 +127,39 @@ namespace ExternalIntegration.Validations {
             }
 
             //Check features
+            List<FeatureEnum> features = new List<FeatureEnum>();
+            bool refSeen = false;
+            bool animalSeen = false;
+            bool cautioslySeen = false;
+            string errorMsg = "Cannot transport refrigerated, animals and cautiosly in one delivery";
             foreach (string feature in telstarRequest.Features) {
                 try {
                     FeatureEnum f = (FeatureEnum)Enum.Parse(typeof(FeatureEnum), feature);
+                    features.Add(f);
+                    if (f == FeatureEnum.WEAPONS) {
+                        return "Weapons are not allowed";
+                    }
+                    
+                    if (f == FeatureEnum.REFIGERATED) {
+                        refSeen = true;
+                        if(animalSeen || cautioslySeen) {
+                            return errorMsg;
+                        }
+                    }
+
+                    if (f == FeatureEnum.LIVE_ANIMALS) {
+                        animalSeen = true;
+                        if (refSeen || cautioslySeen) {
+                            return errorMsg;
+                        }
+                    }
+
+                    if (f == FeatureEnum.CAUTIOUSLY) {
+                        cautioslySeen = true;
+                        if (animalSeen || refSeen) {
+                            return errorMsg;
+                        }
+                    }
                 }
                 catch (Exception) {
                     return "Invalid feature: " + feature;

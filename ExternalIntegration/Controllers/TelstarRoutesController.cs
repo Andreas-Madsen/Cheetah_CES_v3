@@ -42,7 +42,6 @@ namespace ExternalIntegration.Controllers
         [HttpGet]
         public TelstarRoutes Get([FromBody] TelstarRequest telstarRequest) 
         {
-            //Validation
             string errorMsg = CommunicationValidation.verifyTelstarRequest(telstarRequest);
             if (errorMsg != null) {
                 return returnError(errorMsg);
