@@ -32,6 +32,11 @@ namespace ExternalIntegration.Services {
                 //Console.WriteLine(response);
 
                 OceanicResponse oceanicResponse = JsonSerializer.Deserialize<OceanicResponse>(response);
+
+                if (oceanicResponse.price == -1 || oceanicResponse.time == -1) {
+                    return null;
+                }
+
                 return oceanicResponse;
             }
             catch (Exception) {

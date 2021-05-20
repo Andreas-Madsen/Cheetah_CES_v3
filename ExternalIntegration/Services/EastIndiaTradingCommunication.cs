@@ -30,6 +30,11 @@ namespace ExternalIntegration.Services {
                 //Console.WriteLine(response);
 
                 EastIndiaResponse eastIndiaResponse = JsonSerializer.Deserialize<EastIndiaResponse>(response);
+
+                if(eastIndiaResponse.price == -1 || eastIndiaResponse.time == -1) {
+                    return null;
+                }
+
                 return eastIndiaResponse;
             }
             catch (Exception) {
