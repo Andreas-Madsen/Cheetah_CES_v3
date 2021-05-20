@@ -16,5 +16,17 @@ namespace Cheetah_Transport.Models
         public TransportCenter CenterB { get; set; }
 
         public int TravelTime { get; set; }
+
+        /*public Routes(int id, TransportType _type, TransportCenter centerA, TransportCenter centerB,
+            int travelTime = Int32.MaxValue)
+        {
+            Id = id;
+            Type = _type;
+            CenterA = centerA;
+            CenterB = centerB;
+            TravelTime = travelTime;
+
+        }*/
+
     }
 }
