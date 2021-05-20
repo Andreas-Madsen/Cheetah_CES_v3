@@ -34,10 +34,10 @@ namespace Cheetah_Transport.Data
 
                         TransportCenterDAO tcDAO = new TransportCenterDAO();
                         
-                        int centerAId = reader.GetOrdinal("Center_A_Id");
+                        int centerAId = reader.GetInt32(reader.GetOrdinal("Center_A_Id"));
                         TransportCenter centerA = tcDAO.FetchOne(centerAId);
 
-                        int centerBId = reader.GetOrdinal("Center_B_Id");
+                        int centerBId = reader.GetInt32(reader.GetOrdinal("Center_B_Id"));
                         TransportCenter centerB = tcDAO.FetchOne(centerBId);
 
                         TransportTypeDAO ttDAO = new TransportTypeDAO();
@@ -48,7 +48,15 @@ namespace Cheetah_Transport.Data
                         route.CenterA = centerA;
                         route.CenterB = centerB;
                         route.Type = transportType;
-                        route.TravelTime = reader.GetInt32(reader.GetOrdinal("Travel_Time_Hours"));
+                        if (reader.IsDBNull(reader.GetOrdinal("Travel_Time_Hours")))
+                        {
+                            route.TravelTime = 1000;
+                        }
+                        else
+                        {
+                            route.TravelTime = reader.GetInt32(reader.GetOrdinal("Travel_Time_Hours"));
+                        }
+                        
 
                         returnList.Add(route);
                     }
