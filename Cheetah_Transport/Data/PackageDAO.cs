@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Cheetah_Transport.Data
 {
-    internal class PackageDAO
+    public class PackageDAO
     {
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 

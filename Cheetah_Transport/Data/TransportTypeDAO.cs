@@ -10,15 +10,14 @@ namespace Cheetah_Transport.Data
 {
     public class TransportTypeDAO
     {
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
+        private string ConnectionString = "Data Source=tcp:dbs-tl-dk2.database.windows.net,1433;Initial Catalog=db-tl-dk2;User ID=admin-tl-dk2;Password=telStarRox16";
         public List<TransportType> FetchAll()
         {
             List<TransportType> returnList = new List<TransportType>();
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                string sqlQuery = "SELECT * from ";
+                string sqlQuery = "SELECT * from dbo.TRANSPORT_TYPES";
 
                 SqlCommand command = new SqlCommand(sqlQuery, connection);
 
@@ -32,12 +31,14 @@ namespace Cheetah_Transport.Data
                         TransportType transportType = new TransportType();
                         transportType.Id= reader.GetInt32(0);
                         transportType.Name = reader.GetString(1);
+                        if (reader.IsDBNull(2))
+                        {
+                            break;
+                        }
                         transportType.PricePerHour = reader.GetDouble(2);
-
                         returnList.Add(transportType);
                     }
                 }
-
             }
             return returnList;
         }
