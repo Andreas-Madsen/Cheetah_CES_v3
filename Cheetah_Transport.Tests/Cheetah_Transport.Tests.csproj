@@ -91,7 +91,6 @@
   <ItemGroup>
     <Compile Include="Data\PackageDAOTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -104,6 +103,9 @@
       <Project>{f91f3aa4-b601-4368-8284-5630079c75db}</Project>
       <Name>Cheetah_Transport</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
