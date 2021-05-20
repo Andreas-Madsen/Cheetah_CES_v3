@@ -134,11 +134,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\RoutesDAO.cs" />
-    <Compile Include="Data\TransportCenterDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExtraCost.cs" />
+    <Compile Include="Models\Package.cs" />
     <Compile Include="Models\Routes.cs" />
     <Compile Include="Models\TransportCenter.cs" />
     <Compile Include="Models\TransportType.cs" />
