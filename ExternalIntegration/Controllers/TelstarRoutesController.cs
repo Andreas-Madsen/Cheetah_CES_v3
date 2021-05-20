@@ -28,18 +28,29 @@ namespace ExternalIntegration.Controllers
             };
         }
 
+        private int GetPrice() {
+            //TODO implement
+            return 10;
+        }
+
+        private int GetTime() {
+            //TODO implement
+            return 10;
+        }
+
+
         [HttpGet]
         public TelstarRoutes Get([FromBody] TelstarRequest telstarRequest) 
         {
             //Validation
-            string errorMsg = ValidationController.verifyTelstarRequest(telstarRequest);
+            string errorMsg = CommunicationValidation.verifyTelstarRequest(telstarRequest);
             if (errorMsg != null) {
                 return returnError(errorMsg);
             }
 
             return new TelstarRoutes {
-                Price = 3,
-                Time = 20,
+                Price = GetPrice(),
+                Time = GetTime(),
                 Error = "NO_ERROR"
             };
         }

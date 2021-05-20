@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ExternalIntegration.Enums {
+namespace ExternalIntegration.Utils {
     public class CompanySecrets {
         public static string GetTelstarSecret() {
             return "KLdsaklwPldTdmWOdcMAwf73Adm1rRFijofdsijterI";
