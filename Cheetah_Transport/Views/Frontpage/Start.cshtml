@@ -1,0 +1,12 @@
+﻿@section frontpagesection {
+    <link href="@Url.Content("~/Content/frontpage-style.css")" rel="stylesheet" type="text/css"/>
+}
+<div class="bg">
+    <h1 class="text-center">Cheetah Transport</h1>
+    <div class="container">
+        <div class="vertical-center">
+            <button class="frontpage-button btn btn-primary"onclick="location.href = '@Url.Action("LocationPage", "LocationSelector")'">Calculate delivery cost</button>
+        </div>
+    </div>
+    <img class="bottom-logo" src="../../images/telstar_logo.PNG"/>
+</div>

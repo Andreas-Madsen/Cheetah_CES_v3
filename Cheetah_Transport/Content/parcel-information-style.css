@@ -1,0 +1,18 @@
+﻿.input-label {
+    height: 35px;
+    width: 120px;
+    background-color: lightgray;
+    float: left;
+    text-align: center;
+    vertical-align: center;
+}
+
+.input-field {
+    max-width: 180px;
+}
+
+.test {
+    display: inline;
+    float: left;
+    width: 10px;
+}

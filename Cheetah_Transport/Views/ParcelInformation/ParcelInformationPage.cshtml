@@ -1,0 +1,22 @@
+﻿@section locationselectorsection {
+    <link href="@Url.Content("~/Content/parcel-information-style.css")" rel="stylesheet" type="text/css"/>
+}
+
+<div class="bg">
+    <div class="row inner-frame">
+        <div class="column" style="background-color: white">
+            <label style="font-weight: bold">Weight:</label>
+            <div>
+                <div class="input-label">Insert weight:</div><input class="input-field form-control">
+            </div>
+
+        </div>
+        <div class="column" style="background-color: white;">
+            <div style="margin-top: 10%">
+                <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation")'">Next</button>
+            </div>
+        </div>
+
+    </div>
+    <img class="bottom-logo" src="../../images/telstar_logo.PNG"/>
+</div>
