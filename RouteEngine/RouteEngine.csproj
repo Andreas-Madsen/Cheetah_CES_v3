@@ -40,6 +40,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictio.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="MapBuilder.cs" />
     <Compile Include="RouteEngine.cs" />
@@ -48,6 +49,12 @@
     <Reference Include="Dijkstra.NET, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dijkstra.NET.1.2.1\lib\net40\Dijkstra.NET.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cheetah_Transport\Cheetah_Transport.csproj">
+      <Project>{f91f3aa4-b601-4368-8284-5630079c75db}</Project>
+      <Name>Cheetah_Transport</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

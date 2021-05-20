@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cheetah_Transport.Data;
+using Cheetah_Transport.Models;
 using Dijkstra.NET.Graph;
 
 namespace RouteEngine
@@ -11,25 +13,41 @@ namespace RouteEngine
     {
         public Graph<int, string> GetMap()
         {
+            
+
             var graph = new Graph<int, string>();
 
-            var s = graph.AddNode(1);
-            var a = graph.AddNode(2);
-            //graph.AddNode("B");
-            var c = graph.AddNode(3);
-            //graph.AddNode("D");
-            //graph.AddNode("E");
-            //graph.AddNode("F");
+            TransportCenterDAO transportCenterDao = new TransportCenterDAO();
+            List<TransportCenter> centers = transportCenterDao.FetchAll();
+            foreach (var center in centers)
+            {
+                int centerId = center.Id;
+                uint key = graph.AddNode(centerId);
+                Dictio.centerIdToKey.Add(centerId, key);
+                Dictio.keyToCenterId.Add(key, centerId);
+            }
 
-            //graph.Connect(1, 2, 5, "some custom information in edge"); //First node has key equal 1
-            graph.Connect(a, s, 3, "Car");
-            graph.Connect(s, a, 3, "Car");
+            RoutesDAO routesDAO = new RoutesDAO();
+            List<Routes> routes = routesDAO.FetchAll();
+            foreach (var route in routes)
+            {
+                var x = route.CenterA;
+                var y = route.CenterB;
+                var cost = route.TravelTime;
+                
+                var centerA = route.CenterA;
+                var keyA = Dictio.centerIdToKey[centerA.Id];
 
-            graph.Connect(c, s, 1, "Car");
-            graph.Connect(s, c, 1, "Car");
+                var centerB = route.CenterB;
+                var keyB = Dictio.centerIdToKey[centerB.Id];
 
-            graph.Connect(c, a, 1, "Car");
-            graph.Connect(a, c, 1, "Car");
+                var transportType = route.Type.Name;
+
+                graph.Connect(keyA, keyB, cost, transportType);
+                graph.Connect(keyB, keyA, cost, transportType);
+            }
+
+            
             return graph;
         }
     }
