@@ -15,12 +15,12 @@ namespace ExternalIntegration.Controllers
             _logger = logger;
         }
 
-        private TelstarRoutes returnError(string errorMsg) 
+        private TelstarResponse returnError(string errorMsg) 
         {
-            return new TelstarRoutes {
-                Price = -1,
-                Time = -1,
-                Error = errorMsg
+            return new TelstarResponse {
+                price = -1,
+                time = -1,
+                error = errorMsg
             };
         }
 
@@ -36,17 +36,17 @@ namespace ExternalIntegration.Controllers
 
 
         [HttpGet]
-        public TelstarRoutes Get([FromBody] TelstarRequest telstarRequest) 
+        public TelstarResponse Get([FromBody] TelstarRequest telstarRequest) 
         {
             string errorMsg = CommunicationValidation.verifyTelstarRequest(telstarRequest);
             if (errorMsg != null) {
                 return returnError(errorMsg);
             }
 
-            return new TelstarRoutes {
-                Price = GetPrice(),
-                Time = GetTime(),
-                Error = "NO_ERROR"
+            return new TelstarResponse {
+                price = GetPrice(),
+                time = GetTime(),
+                error = "NO_ERROR"
             };
         }
     }
