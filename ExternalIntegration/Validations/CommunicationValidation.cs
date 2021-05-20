@@ -108,6 +108,10 @@ namespace ExternalIntegration.Validations {
                 return weightError;
             }
 
+            if(telstarRequest.Weight > 40) {
+                return "Weight cannot be more than 40";
+            }
+
             //Check width
             string widthError = isNumberValid(telstarRequest.Width);
             if (widthError != null) {
