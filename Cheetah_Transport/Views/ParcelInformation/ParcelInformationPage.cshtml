@@ -4,17 +4,81 @@
 
 <div class="bg">
     <div class="row inner-frame">
-        <div class="column" style="background-color: white">
+        <div class="column">
             <label style="font-weight: bold">Weight:</label>
             <div>
-                <div class="input-label">Insert weight:</div><input class="input-field form-control">
+                <div class="input-label">
+                    <p>Insert weight:</p>
+                </div><input class="input-field form-control" type="number">
             </div>
-
+            <div class="break"></div>
+            <label style="font-weight: bold">Size:</label>
+            <div>
+                <div class="input-label">
+                    <p>Insert width:</p>
+                </div><input class="input-field form-control" type="number">
+            </div>
+            <div class="break"></div>
+            <div>
+                <div class="input-label">
+                    <p>Insert length:</p>
+                </div><input class="input-field form-control" type="number">
+            </div>
+            <div class="break"></div>
+            <div>
+                <div class="input-label">
+                    <p>Insert height:</p>
+                </div><input class="input-field form-control" type="number">
+                <div class="break"></div>
+            </div>
+            <label style="font-weight: bold">Extra options:</label>
+            <div class="break"></div>
+            <div>
+                <div class="input-label">
+                    <p>Fragile parcel</p>
+                </div><input class="radio-btn form-control" type="radio" name="options">
+            </div>
+            <div class="break"></div>
+            <div>
+                <div class="input-label">
+                    <p>Live animals</p>
+                </div><input class="radio-btn  form-control" type="radio" name="options">
+            </div>
+            <div class="break"></div>
+            <div>
+                <div class="input-label">
+                    <p>Refrigerated</p>
+                </div><input class="radio-btn form-control" type="radio" name="options">
+            </div>
+            <button class="back-button btn btn-primary" onclick="location.href = '@Url.Action("LocationPage", "LocationSelector")'">Go back</button>
         </div>
-        <div class="column" style="background-color: white;">
-            <div style="margin-top: 10%">
-                <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation")'">Next</button>
+        <div class="column">
+            <label style="font-weight: bold">Type of Delivery: </label>
+            <div>
+                <div class="input-label">
+                    <p>Cheapest</p>
+                </div><input class="radio-btn form-control" type="radio" name="deliverytype">
             </div>
+            <div>
+                <div class="input-label">
+                    <p>Fastest</p>
+                </div><input class="radio-btn  form-control" type="radio" name="deliverytype">
+            </div>
+            <div class="break"></div>
+            <label style="font-weight: bold">Recommended:</label>
+            <div>
+                <div class="input-label-recommended">
+                    <p>Recommended delivery:</p>
+                </div><input class="radio-btn form-control" type="checkbox">
+            </div>
+            <div class="break"></div>
+            <label style="font-weight: bold">No weapons:</label>
+            <div>
+                <div class="input-label-weapons">
+                    <p>The customer accepts agreement of not sending any weapons in this delivery:</p>
+                </div><input class="radio-btn form-control" type="checkbox">
+            </div>
+            <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("SummaryPage", "Summary")'">Finish</button>
         </div>
 
     </div>

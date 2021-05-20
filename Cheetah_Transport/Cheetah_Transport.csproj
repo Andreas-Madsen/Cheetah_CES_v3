@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\SummaryController.cs" />
     <Compile Include="Data\ExtraCostDAO.cs" />
     <Compile Include="Data\PackageDAO.cs" />
     <Compile Include="Data\RoutesDAO.cs" />
@@ -159,6 +160,7 @@
     <Content Include="Content\frontpage-style.css" />
     <Content Include="Content\location-selector-style.css" />
     <Content Include="Content\parcel-information-style.css" />
+    <Content Include="Content\summary-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -192,6 +194,7 @@
     <Content Include="Views\Frontpage\Start.cshtml" />
     <Content Include="Views\LocationSelector\LocationPage.cshtml" />
     <Content Include="Views\ParcelInformation\ParcelInformationPage.cshtml" />
+    <Content Include="Views\Summary\SummaryPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
