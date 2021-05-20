@@ -12,7 +12,7 @@
         GULDKYSTEN,
         HVALBUGTEN,
         KABALO,
-        KAP_GUARDAFAU,
+        KAP_GUARDAFUI,
         KAP_ST_MARIE,
         KAPSTADEN,
         LUANDA,
@@ -28,8 +28,8 @@
         TIMBUKTU,
         TRIPOLI,
         TUNIS,
-        VICTORIAFALDENE,
-        VICTORIASOEN,
+        VICTORIA_FALDENE,
+        VICTORIASOEEN,
         WADAI,
         ZANZIBAR
     }

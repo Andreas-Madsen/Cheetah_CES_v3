@@ -14,7 +14,7 @@ namespace ExternalIntegration
     {
         public static void Main(string[] args)
         {
-            OceanicAirlinesCommunication.RequestRoute(CompanyEnum.TELSTAR_LOGISTICS, CityEnum.ADDIS_ABEBA, CityEnum.AMATAVE, "parcelType", 2, 3, 4, 5);
+            /*
             TelstarCommunication.RequestRoute(new TelstarRequest {
                 Company = CompanyEnum.TELSTAR_LOGISTICS.ToString(),
                 SecretCompanyCode = CompanySecrets.GetTelstarSecret(),
@@ -26,6 +26,11 @@ namespace ExternalIntegration
                 Width = 2,
                 Length = 2
             });
+
+            OceanicAirlinesCommunication.RequestRoute(CompanyEnum.TELSTAR_LOGISTICS, CityEnum.ADDIS_ABEBA, CityEnum.AMATAVE, "parcelType", 2, 3, 4, 5);
+            EastIndiaTradingCommunication.RequestRoute(CityEnum.KAP_GUARDAFUI, CityEnum.SUAKIN, 50, false, false);
+            */
+
             CreateHostBuilder(args).Build().Run();
         }
 

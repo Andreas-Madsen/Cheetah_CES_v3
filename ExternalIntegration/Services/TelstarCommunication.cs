@@ -13,8 +13,9 @@ namespace ExternalIntegration.Services {
         public static TelstarResponse RequestRoute(TelstarRequest request) {
             string jsonString = JsonSerializer.Serialize(request);
             string response = CommunicationController.Send(Config.TELSTAR_URL, jsonString);
+            //Console.WriteLine(response);
+            
             TelstarResponse telstarResponse = JsonSerializer.Deserialize<TelstarResponse>(response);
-            Console.WriteLine(response);
             return telstarResponse;
         }
     }

@@ -11,9 +11,9 @@ namespace ExternalIntegration.Services {
          * This method builds the url for the request to Oceanic Airlines
          * with the parameters since they do not have a body for the request
          */
-        private static string buildUrl(CompanyEnum companyCode, CityEnum cityFrom, CityEnum cityTo, string parcelTyoe, int weight, int height, int width, int length) {
+        private static string BuildUrl(CompanyEnum companyCode, CityEnum cityFrom, CityEnum cityTo, string parcelTyoe, int weight, int height, int width, int length) {
             string url = Config.OCEANIC_AIRLINES_URL;
-            url += "companyCode=a&";
+            url += "companyCode=" + companyCode.ToString() + "&";
             url += "cityFrom=" + cityFrom.ToString() + "&";
             url += "&cityTo=" + cityTo.ToString() + "&";
             url += "parceltype=" + parcelTyoe + "&";
@@ -26,11 +26,11 @@ namespace ExternalIntegration.Services {
         }
 
         public static OceanicResponse RequestRoute(CompanyEnum companyCode, CityEnum cityFrom, CityEnum cityTo, string parcelTyoe, int weight, int height, int width, int length) {
-            string url = buildUrl(companyCode, cityFrom, cityTo, parcelTyoe, weight, height, width, length);
+            string url = BuildUrl(companyCode, cityFrom, cityTo, parcelTyoe, weight, height, width, length);
             string response = CommunicationController.Send(url, "");
-            
+            //Console.WriteLine(response);
+
             OceanicResponse oceanicResponse = JsonSerializer.Deserialize<OceanicResponse>(response);
-            Console.WriteLine(response);
             return oceanicResponse;
         }
     }
